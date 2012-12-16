@@ -1,0 +1,15 @@
+atom_match.o: atom_match.c pare.h
+	${CC} -c ${CFLAGS} atom_match.c
+
+pare_comp.o: pare_comp.c pare.h
+	${CC} -c ${CFLAGS} pare_comp.c
+
+pare_free.o: pare_free.c pare.h
+	${CC} -c ${CFLAGS} pare_free.c
+
+pare_match.o: pare_match.c pare.h
+	${CC} -c ${CFLAGS} pare_match.c
+
+pare_test.o: pare_test.c pare.h
+	${CC} -c ${CFLAGS} pare_test.c
+

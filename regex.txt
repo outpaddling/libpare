@@ -1,0 +1,31 @@
+
+    Pattern         Syntax      Code
+    ---------------------------------------------------------------------
+    Exact char      x           if ( *pattern == *string )
+				    continue
+				else
+				    return(no match)
+    Exact string    (xyz)       if ( memcmp() )
+				    continue
+				else
+				    return(no match)
+    Any char        .           move on
+    Char in set     [xyz] or    if ( member(ch,set) )
+		    [a-z]           continue
+				else
+				    return(no match)
+    
+    Count           Syntax      Code
+    ---------------------------------------------------------------------
+    1               pattern     if ( string matches pattern )
+				    continue
+				else
+				    return(no match)
+    0 or 1          pattern?    advance through pattern
+				if ( string matches pattern )
+				    advance through string
+    0 or more       pattern*    while ( string matches pattern )
+				    advance through string
+				advance through pattern
+    1 or more       pattern+    1 count followed by 0 or more count
+    
