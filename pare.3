@@ -1,0 +1,61 @@
+.TH PARE
+.SH NAME
+.PP
+
+libpare - Pointer Array Regular Expression match
+
+.SH SYNOPSIS
+
+int     pare_comp(compile_re,pattern,max_pieces)
+cre_t   *compiled_re;
+char    *pattern;
+size_t  max_pieces;
+
+int     pare_match(compiled_re,address,array_address)
+cre_t   *compiled_re;
+char    *address,**array_address;
+
+void    pare_free(compiled_re)
+cre_t   *compiled_re;
+
+.SH DESCRIPTION
+
+.B  "pare_match()"
+attempts to match the regular expression given in 
+.B compiled_re
+beginning at the character address given by
+.B address.
+
+If 
+.B array_address
+is non
+.B NULL,
+then
+.B address
+should specify an address within an array of pointers to strings
+such as argv[] or envp[]
+(not a 2-D array), and address and array_address should both refer
+to the same string.  When address reached the '\0' terminator,
+pare_match() will increment array_address and continue with
+the next string in the array.
+
+The pointer array should be terminated by a NULL pointer, as with
+argv[] and envp[].
+
+For example:
+
+.nf
+.na
+    char    *list[] = {"first","second","third",NULL};
+    
+    ...
+    pare_compile(&cre,pattern,MAX_PIECES);
+    if ( pare_match(&cre,list[0],list) > 0 )
+    {
+	...
+    }
+.ad
+.fi
+
+.SH RETURN VALUES
+

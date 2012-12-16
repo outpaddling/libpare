@@ -1,0 +1,5 @@
+
+Problems with [a-zA-Z_0-9]
+
+Make re_comp convert char literal sequences to strings.
+
