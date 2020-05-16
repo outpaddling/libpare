@@ -1,0 +1,4 @@
+libpare
+=======
+Libpare is a library for finding regular expressions in an argv-style pointer
+array.  REs can span multiple strings.
