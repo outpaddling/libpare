@@ -17,8 +17,10 @@ OBJS =  pare_comp.o \
 
 # Install in /usr/local, unless defined by the parent Makefile, the
 # environment, or a command line option such as PREFIX=/opt/local.
+DESTDIR     ?= .
 PREFIX      ?= /usr/local
 MANPREFIX   ?= ${PREFIX}
+MANDIR      ?= ${PREFIX}/man
 
 # Where to find local libraries and headers.  For MacPorts, override
 # with "make LOCALBASE=/opt/local"
@@ -101,20 +103,9 @@ realclean: clean
 # Install all target files (binaries, libraries, docs, etc.)
 
 install: all
-	${MKDIR} -p ${PREFIX}/lib ${PREFIX}/include ${PREFIX}/man/man3
-	${INSTALL} -m 0444 ${LIB} ${PREFIX}/lib
+	${MKDIR} -p ${DESTDIR}${PREFIX}/lib ${DESTDIR}${PREFIX}/include ${DESTDIR}${MANDIR}/man3
+	${INSTALL} -m 0444 ${LIB} ${DESTDIR}${PREFIX}/lib
 	@for file in ${HEADERS}; do \
-	    ${INSTALL} -m 0444 $${file} ${PREFIX}/include; \
+	    ${INSTALL} -m 0444 $${file} ${DESTDIR}${PREFIX}/include; \
 	done
-	${INSTALL} -m 0444 ${MAN} ${MANPREFIX}/man/man3
-
-############################################################################
-# Remove all installed files
-
-uninstall:
-	${RM} ${PREFIX}/lib/${LIB}
-	${RM} ${MANPREFIX}/man/man3/${MAN}
-	@for file in ${HEADERS}; do \
-	    ${RM} ${PREFIX}/include/$${file}; \
-	done
-
+	${INSTALL} -m 0444 ${MAN} ${DESTDIR}${MANDIR}/man3
