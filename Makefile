@@ -19,8 +19,10 @@ OBJS =  pare_comp.o \
 # environment, or a command line option such as PREFIX=/opt/local.
 LOCALBASE   ?= ../local
 PREFIX      ?= ${LOCALBASE}
+
+# Allow caller to override either MANPREFIX or MANDIR
 MANPREFIX   ?= ${PREFIX}
-MANDIR      ?= ${PREFIX}/man
+MANDIR      ?= ${MANPREFIX}/man
 
 ############################################################################
 # Build flags
