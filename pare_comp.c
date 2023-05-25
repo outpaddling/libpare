@@ -46,9 +46,7 @@
 	    return (v);\
 	}
 
-int     pare_compile(cre,pattern_arg)
-cre_t   *cre;
-const char    *pattern_arg;
+int     pare_compile(cre_t *cre, const char *pattern_arg)
 
 {
     branch_t    *cur_branch;
@@ -235,9 +233,7 @@ const char    *pattern_arg;
 }
 
 
-void    init_starter_set(cre,branch)
-cre_t   *cre;
-branch_t    *branch;
+void    init_starter_set(cre_t *cre, branch_t *branch)
 
 {
     int     c;

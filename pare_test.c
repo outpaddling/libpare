@@ -38,9 +38,7 @@ typedef struct
 }   junk_t;
 
 
-int     main(argc,argv)
-int     argc;
-char    *argv[];
+int     main(int argc, char *argv[])
 
 {
     char    *string[] = {

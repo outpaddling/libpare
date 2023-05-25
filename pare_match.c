@@ -58,11 +58,11 @@
 		{ "ONE", "ZERO_OR_ONE", "ZERO_OR_MORE", "ONE_OR_MORE" };
 #endif
 
-int     atom_match(piece, cur_char_ptr, line_base_ptr, size)
-piece_t *piece;
-char  **cur_char_ptr;
-char ***line_base_ptr;
-size_t  size;
+int     atom_match(
+    piece_t *piece,
+    char  **cur_char_ptr,
+    char ***line_base_ptr,
+    size_t  size)
 
 {
     char    *cur_char = *cur_char_ptr,
@@ -161,12 +161,12 @@ size_t  size;
 }
 
  
-int     pare_match(cre,start,list,esize,end)
-cre_t   *cre;
-char    *start;
-char    **list;         /* Actually a void pointer */
-size_t  esize;
-reloc_t *end;
+int     pare_match(
+    cre_t   *cre,
+    char    *start,
+    char    **list,         /* Actually a void pointer */
+    size_t  esize,
+    reloc_t *end)
 
 {
     int         count, bcount, branches = cre->branch_count;
@@ -200,11 +200,12 @@ reloc_t *end;
  * Match a single branch of the RE
  */
  
-int     branch_match(cur_branch,start,list,esize,end)
-branch_t    *cur_branch;
-char    *start, **list;
-size_t  esize;
-reloc_t *end;
+int     branch_match(
+    branch_t    *cur_branch,
+    char    *start,
+    char    **list,
+    size_t  esize,
+    reloc_t *end)
 
 {
     size_t  total = 0;

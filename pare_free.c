@@ -44,8 +44,7 @@
  *
  ****************************************************************************/
 
-void    pare_free(cre)
-cre_t   *cre;
+void    pare_free(cre_t *cre)
 
 {
     branch_t    *cur_branch;

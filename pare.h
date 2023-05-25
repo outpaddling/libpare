@@ -161,50 +161,41 @@ typedef struct
 void    *alloca(size_t);
 #endif
 
-#ifndef __PROTO
-#if __STDC__ || defined(__cplusplus)
-#define __PROTO(s) s
-#else
-#define __PROTO(s) ()
-#endif
-#endif
-
-
 /* atom_match.c */
-int atom_match __PROTO((
+int atom_match (
 	piece_t *piece, 
 	char **cur_char_ptr, 
 	char ***line_base_ptr, 
-	size_t size));
+	size_t size);
 
 /* pare_comp.c */
-int pare_compile __PROTO((
+int pare_compile (
 	cre_t *cre, 
-	const char *pattern_arg));
-void init_starter_set __PROTO((
+	const char *pattern_arg);
+void init_starter_set (
 	cre_t *cre,
-	branch_t *branch));
+	branch_t *branch);
 
 /* pare_free.c */
-void pare_free __PROTO((
-	cre_t *cre));
+void pare_free (
+	cre_t *cre);
 
 /* pare_match.c */
-int pare_match __PROTO((
+int pare_match (
 	cre_t *cre, 
 	char *start, 
 	char **list, 
 	size_t esize, 
-	reloc_t *end));
-int branch_match __PROTO((
+	reloc_t *end);
+int branch_match (
 	branch_t *cur_branch, 
 	char *start, 
 	char **list, 
 	size_t esize, 
-	reloc_t *end));
-int odd_count_esc __PROTO((
-	char *,char *));
-int count_branches __PROTO((
-	char *));
+	reloc_t *end);
+int odd_count_esc (
+	char *,char *);
+int count_branches (
+	char *);
 #undef __PROTO
 

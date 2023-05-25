@@ -42,11 +42,11 @@
  *      Match a single string or char to an atom in the compiled RE.
  **************************************************************************/
 
-int     atom_match(piece, cur_char_ptr, line_base_ptr, size)
-piece_t *piece;
-char  **cur_char_ptr;
-char ***line_base_ptr;
-size_t  size;
+int     atom_match(
+    piece_t *piece,
+    char  **cur_char_ptr,
+    char ***line_base_ptr,
+    size_t  size)
 
 {
     char    *cur_char = *cur_char_ptr,
