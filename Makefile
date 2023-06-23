@@ -37,9 +37,7 @@ MANDIR      ?= ${MANPREFIX}/man
 # Portable defaults.  Can be overridden by mk.conf or command line.
 CC          ?= gcc
 CFLAGS      ?= -Wall -g
-
-CXX         ?= g++
-CXXFLAGS    ?= -Wall -g
+CFLAGS      += -Wno-char-subscripts
 
 CPP         ?= cpp
 
