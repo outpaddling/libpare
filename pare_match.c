@@ -183,7 +183,7 @@ int     pare_match(
 	cur_branch = cre->branches+bcount;
 	/* Don't waste time calling branch_match() unless the current
 	   character is a valid starter for the current branch */
-	if ( IS_BRANCH_STARTER(cur_branch->pieces[0],(int)*start) )
+	if ( IS_BRANCH_STARTER(cur_branch->pieces[0],*start) )
 	{
 	    count = branch_match(cur_branch,start,list,esize,end);
 	    if ( count > 0 )
